@@ -1,5 +1,9 @@
 import "./App.css";
 
+// Progress Bar Imports
+import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
+
 function App() {
   return (
     <div className="dashboard">
@@ -217,7 +221,77 @@ function App() {
           </div>
 
           <aside className="statistics">
-            <div className="flyOver"></div>
+            <div className="flyOver">
+              <header className="flyOverHeader">
+                <div className="title">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="icon"
+                    fill="#38D9A9"
+                    viewBox="0 0 256 256"
+                  >
+                    <path d="M240,136v32a8,8,0,0,1-8,8,7.61,7.61,0,0,1-1.57-.16L156,161v23.73l17.66,17.65A8,8,0,0,1,176,208v24a8,8,0,0,1-11,7.43l-37-14.81L91,239.43A8,8,0,0,1,80,232V208a8,8,0,0,1,2.34-5.66L100,184.69V161L25.57,175.84A7.61,7.61,0,0,1,24,176a8,8,0,0,1-8-8V136a8,8,0,0,1,4.42-7.16L100,89.06V44a28,28,0,0,1,56,0V89.06l79.58,39.78A8,8,0,0,1,240,136Z"></path>
+                  </svg>
+                  <h2 className="flyOverTitle">Flyover</h2>
+                </div>
+
+                <div className="progressWrapper">
+                  <CircularProgressbar
+                    value={75}
+                    text={`75%`}
+                    strokeWidth={5}
+                    styles={buildStyles({
+                      pathColor: `#38D9A9`,
+                      textColor: "#fff",
+                      trailColor: "#38d9a91a",
+                    })}
+                  />
+                </div>
+
+                <div className="satellite">
+                  <p className="name">
+                    ISS Zarya <span className="id">37820U</span>
+                  </p>
+                </div>
+              </header>
+
+              <div className="flyOverDetails">
+                <div className="measurement measurement--1">
+                  <p className="measurementType">Distance</p>
+                  <p className="measurementValue">
+                    3000 <span className="unit">km</span>
+                  </p>
+                </div>
+
+                <div className="measurement measurement--2">
+                  <p className="measurementType">Duration</p>
+                  <p className="measurementValue">
+                    3 <span className="unit">hours</span>
+                  </p>
+                </div>
+
+                <div className="measurement measurement--3">
+                  <p className="measurementType">Visibility</p>
+                  <p className="measurementValue">Visible</p>
+                </div>
+
+                <button type="button" className="btn--untrack">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="icon"
+                  >
+                    <path d="M3.53 2.47a.75.75 0 0 0-1.06 1.06l18 18a.75.75 0 1 0 1.06-1.06l-18-18ZM22.676 12.553a11.249 11.249 0 0 1-2.631 4.31l-3.099-3.099a5.25 5.25 0 0 0-6.71-6.71L7.759 4.577a11.217 11.217 0 0 1 4.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113Z" />
+                    <path d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0 1 15.75 12ZM12.53 15.713l-4.243-4.244a3.75 3.75 0 0 0 4.244 4.243Z" />
+                    <path d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 0 0-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 0 1 6.75 12Z" />
+                  </svg>
+                </button>
+
+                <div className="earth"></div>
+              </div>
+            </div>
+
             <div className="filters">
               <header className="filtersHeader">
                 <svg
