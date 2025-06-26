@@ -1,0 +1,9 @@
+.bar {
+  height: 8.6rem;
+  padding: 0 4.8rem;
+  background-color: #2b2b2b;
+  border-radius: 3rem;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+}

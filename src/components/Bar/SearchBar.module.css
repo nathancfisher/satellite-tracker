@@ -1,0 +1,40 @@
+.searchBar {
+  position: relative;
+  padding: 2rem 0rem;
+  border-radius: 3rem;
+  width: 100%;
+  height: 100%;
+}
+
+.search {
+  width: 100%;
+  height: 100%;
+  border-radius: 3rem;
+  border: none;
+
+  text-align: center;
+  font-family: inherit;
+  background-color: #404040;
+  color: #eaeaea;
+  font-size: 1.4rem;
+}
+
+.search::placeholder {
+  font-family: inherit;
+  color: #aaaaaa;
+}
+
+.btn {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0.8rem, -50%);
+  border-radius: 50%;
+  border: none;
+  background-color: #555;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

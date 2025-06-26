@@ -1,44 +1,14 @@
 import "./App.css";
+import TopBar from "./components/Bar/TopBar";
+
+// Progress Bar Imports
+import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 
 function App() {
   return (
     <div className="dashboard">
-      <section className="header">
-        <p className="time">
-          10:24 <span className="timeZone">gmt</span>
-        </p>
-
-        <div className="searchBarWrapper">
-          <input className="searchBar" placeholder="Search by name or id" />
-          <button className="dropdown" type="button">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="icon"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-              />
-            </svg>
-          </button>
-        </div>
-
-        <p className="logo">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="logo"
-          >
-            <path d="M21.721 12.752a9.711 9.711 0 0 0-.945-5.003 12.754 12.754 0 0 1-4.339 2.708 18.991 18.991 0 0 1-.214 4.772 17.165 17.165 0 0 0 5.498-2.477ZM14.634 15.55a17.324 17.324 0 0 0 .332-4.647c-.952.227-1.945.347-2.966.347-1.021 0-2.014-.12-2.966-.347a17.515 17.515 0 0 0 .332 4.647 17.385 17.385 0 0 0 5.268 0ZM9.772 17.119a18.963 18.963 0 0 0 4.456 0A17.182 17.182 0 0 1 12 21.724a17.18 17.18 0 0 1-2.228-4.605ZM7.777 15.23a18.87 18.87 0 0 1-.214-4.774 12.753 12.753 0 0 1-4.34-2.708 9.711 9.711 0 0 0-.944 5.004 17.165 17.165 0 0 0 5.498 2.477ZM21.356 14.752a9.765 9.765 0 0 1-7.478 6.817 18.64 18.64 0 0 0 1.988-4.718 18.627 18.627 0 0 0 5.49-2.098ZM2.644 14.752c1.682.971 3.53 1.688 5.49 2.099a18.64 18.64 0 0 0 1.988 4.718 9.765 9.765 0 0 1-7.478-6.816ZM13.878 2.43a9.755 9.755 0 0 1 6.116 3.986 11.267 11.267 0 0 1-3.746 2.504 18.63 18.63 0 0 0-2.37-6.49ZM12 2.276a17.152 17.152 0 0 1 2.805 7.121c-.897.23-1.837.353-2.805.353-.968 0-1.908-.122-2.805-.353A17.151 17.151 0 0 1 12 2.276ZM10.122 2.43a18.629 18.629 0 0 0-2.37 6.49 11.266 11.266 0 0 1-3.746-2.504 9.754 9.754 0 0 1 6.116-3.985Z" />
-          </svg>
-        </p>
-      </section>
+      <TopBar />
 
       <main className="main">
         <section className="mapContainer">
@@ -217,7 +187,77 @@ function App() {
           </div>
 
           <aside className="statistics">
-            <div className="flyOver"></div>
+            <div className="flyOver">
+              <header className="flyOverHeader">
+                <div className="title">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="icon"
+                    fill="#38D9A9"
+                    viewBox="0 0 256 256"
+                  >
+                    <path d="M240,136v32a8,8,0,0,1-8,8,7.61,7.61,0,0,1-1.57-.16L156,161v23.73l17.66,17.65A8,8,0,0,1,176,208v24a8,8,0,0,1-11,7.43l-37-14.81L91,239.43A8,8,0,0,1,80,232V208a8,8,0,0,1,2.34-5.66L100,184.69V161L25.57,175.84A7.61,7.61,0,0,1,24,176a8,8,0,0,1-8-8V136a8,8,0,0,1,4.42-7.16L100,89.06V44a28,28,0,0,1,56,0V89.06l79.58,39.78A8,8,0,0,1,240,136Z"></path>
+                  </svg>
+                  <h2 className="flyOverTitle">Flyover</h2>
+                </div>
+
+                <div className="progressWrapper">
+                  <CircularProgressbar
+                    value={75}
+                    text={`75%`}
+                    strokeWidth={5}
+                    styles={buildStyles({
+                      pathColor: `#38D9A9`,
+                      textColor: "#fff",
+                      trailColor: "#38d9a91a",
+                    })}
+                  />
+                </div>
+
+                <div className="satellite">
+                  <p className="name">
+                    ISS Zarya <span className="id">37820U</span>
+                  </p>
+                </div>
+              </header>
+
+              <div className="flyOverDetails">
+                <div className="measurement measurement--1">
+                  <p className="measurementType">Distance</p>
+                  <p className="measurementValue">
+                    3000 <span className="unit">km</span>
+                  </p>
+                </div>
+
+                <div className="measurement measurement--2">
+                  <p className="measurementType">Duration</p>
+                  <p className="measurementValue">
+                    3 <span className="unit">hours</span>
+                  </p>
+                </div>
+
+                <div className="measurement measurement--3">
+                  <p className="measurementType">Visibility</p>
+                  <p className="measurementValue">Visible</p>
+                </div>
+
+                <button type="button" className="btn--untrack">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="icon"
+                  >
+                    <path d="M3.53 2.47a.75.75 0 0 0-1.06 1.06l18 18a.75.75 0 1 0 1.06-1.06l-18-18ZM22.676 12.553a11.249 11.249 0 0 1-2.631 4.31l-3.099-3.099a5.25 5.25 0 0 0-6.71-6.71L7.759 4.577a11.217 11.217 0 0 1 4.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113Z" />
+                    <path d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0 1 15.75 12ZM12.53 15.713l-4.243-4.244a3.75 3.75 0 0 0 4.244 4.243Z" />
+                    <path d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 0 0-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 0 1 6.75 12Z" />
+                  </svg>
+                </button>
+
+                <div className="earth"></div>
+              </div>
+            </div>
+
             <div className="filters">
               <header className="filtersHeader">
                 <svg
